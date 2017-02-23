@@ -5,23 +5,44 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
 <script>
+var count = 0;
 function nav(url) {
   window.setTimeout(function(){
     var $target = $('iframe');
+    $target.html('');
     $target[0].src = 'about:blank';
-    $target[0].src = url;
-    console.log(typeof CollectGarbage)
-    if(typeof CollectGarbage !== 'undefined') {
-      $target[0].contentWindow.CollectGarbage();
-      CollectGarbage();
+    $target[0].documentWindow = null;
+    $target[0].window = {};
+    $target.remove();
+    $target = $();
+    delete $target;
+    window.location.href += '#2'
+
+
+    var iframe = "<iframe src='" +url+ "'/>";
+    $('#container').append(iframe)
+    count++
+    console.log(count);
+    if(count > 100){
+      CollectGarbage()
+      window.onunload = function(){
+        console.log('unloading')
+        window.document.innerHTML = '';
+      }
+      window.location.reload()
     }
-  }, 10)
+    // document.getElementById('container').innerHTML(iframe);
+  }, 100)
 }
 </script>
 </head>
 <body>
   ProCon<br />
-  <iframe src="frame1.html">
+  <div id="container">
+    <iframe src="frame1.html" />
+  </div>
+
+
 
 </body>
 </html>
