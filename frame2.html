@@ -1,11 +1,16 @@
 <html>
 <head>
-
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+  <script src="hack.js"></script>
 </head>
-<body>
-  <a href="frame1.html">Tenders</a> | Contracts
+<body style="background-color: black;">
+  <a href="" xhref="frame1.html">Tenders</a> | Contracts
   <script>
-    $('a')[0].click();
+  window.top.nav('frame1.html')
+    // $('a')[0].click();
   </script>
 </body>
 </html>

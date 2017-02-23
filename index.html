@@ -4,9 +4,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+<script>
+function nav(url) {
+  window.setTimeout(function(){
+    var $target = $('iframe');
+    $target[0].src = 'about:blank';
+    $target[0].src = url;
+    console.log(typeof CollectGarbage)
+    if(typeof CollectGarbage !== 'undefined') {
+      $target[0].contentWindow.CollectGarbage();
+      CollectGarbage();
+    }
+  }, 10)
+}
+</script>
 </head>
 <body>
   ProCon<br />
   <iframe src="frame1.html">
+
 </body>
 </html>
