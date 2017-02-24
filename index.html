@@ -16,8 +16,7 @@ function nav(url) {
     $target.remove();
     $target = $();
     delete $target;
-    window.location.href += '#2'
-
+    // window.location.href += '#2'
 
     var iframe = "<iframe src='" +url+ "'/>";
     $('#container').append(iframe)
@@ -25,11 +24,12 @@ function nav(url) {
     console.log(count);
     if(count > 100){
       CollectGarbage()
-      window.onunload = function(){
-        console.log('unloading')
-        window.document.innerHTML = '';
-      }
-      window.location.reload()
+      $('a')[0].click();
+      // window.onunload = function(){
+        // console.log('unloading')
+        // window.document.innerHTML = '';
+      // }
+      // window.location.reload()
     }
     // document.getElementById('container').innerHTML(iframe);
   }, 100)
@@ -37,6 +37,7 @@ function nav(url) {
 </script>
 </head>
 <body>
+  <a href="redirect.html">Redirect</a>
   ProCon<br />
   <div id="container">
     <iframe src="frame1.html" />
